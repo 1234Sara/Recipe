@@ -1,0 +1,134 @@
+// $main-font: cursive;
+// $main-bg: #FFFFFF;
+// $main-font-size: 24px;
+
+// .Footer {
+//     width: 100%;
+//     padding: 2rem;
+//     background-color: $main-bg;
+//     font-size: $main-font-size;
+//     font-family: $main-font;
+//     margin-top: auto;
+//     z-index: 50;
+
+//     .footerTop{
+//         display: flex;
+//         justify-content: space-between;         
+//         padding: 10px 100px;
+
+//         .logo{
+//             display: flex;
+//             align-items: center;
+//             justify-content: start;
+//             font-weight: 600;
+//             font-size: 24px;
+//             color: #000;
+//             gap: 10px;
+//         }
+
+//         .route{
+//             color: rgb(29, 78, 216);
+//             font-weight: 700;
+//         }
+//     }
+
+//     hr {
+//       width: 85%;
+//       margin: 0 auto 30px;
+//     }
+  
+//     p {
+//       color: rgb(107, 114, 128);
+//       text-align: center;
+//       font-size: 14px;
+
+//       .link {
+//         cursor: pointer;
+//         transition: color 0.3s;
+  
+//         &:hover {
+//           text-decoration: underline;
+//         }
+//      }
+//     }   
+//   }
+  
+
+$main-font: cursive;
+$main-bg: #FFFFFF;
+$main-font-size: 24px;
+$primary-color: rgb(29, 78, 216);
+$text-color: rgb(107, 114, 128);
+$black: #000;
+
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%text-center {
+  text-align: center;
+}
+
+@mixin responsive-padding($padding-desktop, $padding-mobile) {
+  padding: $padding-desktop;
+
+  @media (max-width: 768px) {
+    padding: $padding-mobile;
+  }
+}
+
+@mixin hover-underline {
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.Footer {
+  width: 100%;
+  @include responsive-padding(2rem, 1rem);
+  background-color: $main-bg;
+  font-size: $main-font-size;
+  font-family: $main-font;
+  margin-top: auto;
+  z-index: 50;
+
+  .footerTop {
+    @extend %flex-between;
+    @include responsive-padding(10px 100px, 10px 20px); // Adjust padding for mobile
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      font-weight: 600;
+      font-size: $main-font-size;
+      color: $black;
+      gap: 10px;
+    }
+
+    .route {
+      color: $primary-color;
+      font-weight: 700;
+    }
+  }
+
+  hr {
+    width: 85%;
+    margin: 0 auto 30px;
+  }
+
+  p {
+    color: $text-color;
+    @extend %text-center;
+    font-size: 14px;
+
+    .link {
+      @include hover-underline;
+    }
+  }
+}

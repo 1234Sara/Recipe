@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+// .ListMeal {
+
+//     .ListHeading {
+//       text-align: start;
+//       font-size: 36px;
+//       font-weight: 700;
+//       background: linear-gradient(-45deg, #EF8D2A, #DA5648);
+//       -webkit-background-clip: text;
+//       background-clip: text;
+//       color: transparent;
+//       font-family: 'Pacifico', cursive;
+      
+//       @media (max-width: 768px) {
+//         font-size: 2.5rem;
+//         margin-bottom: 2rem;
+//         margin-left: 0;
+//       }
+//     }
+  
+//     .MealList {
+//       display: flex;
+//       flex-wrap: wrap;
+//       gap: 0.7rem;
+//       max-width: 1200px;
+//       margin: 20px auto;
+//       padding: 0 0rem;
+//       justify-content: start;
+//     }
+  
+//     .ListMealItem {
+//       list-style: none;
+//     }
+  
+//     .ListMealLink {
+//       display: flex;
+//       padding: 0.5rem 1.5rem;
+//       color: rgb(107, 114, 128);
+//       font-weight: 500;
+//       font-size: 1rem;
+//       background-color: transparent;
+//       border-radius: 50px;
+//       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+//       transition: all 0.3s ease;
+//       border: 1px solid rgb(107, 114, 128);
+      
+//       &:hover{
+//         background-color: white;
+//         color: #4B5563;
+//         transform: translateY(-1px);
+//         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//       }
+//       &.active{
+//         background-color: black; 
+//         color: white;
+//       }
+//     }
+  
+//     @media (max-width: 768px) {
+//       margin-left: 0;
+      
+//       .MealList {
+//         justify-content: center;
+//       }
+//     }
+//   }
+
+//   @media (min-width: 492px) and (max-width: 639px) {
+//     .ListMeal {
+//         .ListHeading{
+//             margin: 45px;
+//             // text-align: center;
+//         }
+//         .select{
+//           display: block;
+//           width: 100%;
+//           border-radius: 10px;
+//           margin-bottom: 20px;
+//           border: 1px #D1D5DB solid;
+          
+//         }
+//         .ListMealItem{
+//           display: none;
+//         }
+
+//     }
+
+//  }
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%button-style {
+  display: flex;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+%bordered {
+  border: 1px solid rgb(107, 114, 128);
+}
+
+@mixin responsive-text($size, $mobile-size) {
+  font-size: $size;
+  
+  @media (max-width: 768px) {
+    font-size: $mobile-size;
+  }
+}
+
+@mixin rtl-align {
+  text-align: right;
+  text-align-last: right;
+  direction: rtl;
+}
+
+.ListMeal {
+  .ListHeading {
+    text-align: start;
+    @include responsive-text(36px, 2.5rem);
+    font-weight: 700;
+    background: linear-gradient(-45deg, #EF8D2A, #DA5648);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 2rem;
+  }
+
+  .MealList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0;
+    justify-content: start;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+  }
+
+  .ListMealItem {
+    list-style: none;
+  }
+
+  .ListMealLink {
+    @extend %button-style;
+    @extend %bordered;
+    color: rgb(107, 114, 128);
+    background-color: transparent;
+
+    &:hover {
+      background-color: white;
+      color: #4B5563;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    &.active {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+  @media (min-width: 492px) and (max-width: 639px) {
+    .ListMeal {
+        .ListHeading{
+            margin: 45px;
+            // text-align: center;
+        }
+        .select{
+          display: block;
+          width: 100%;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          border: 1px #D1D5DB solid;
+          font-family: cursive;          
+        }
+        .ListMealItem{
+          display: none;
+        }
+
+    }
+  }

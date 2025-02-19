@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.MealDetails {
+    font-family: cursive;
+    
+    .Heading{
+        font-family: 'pacifico', cursive;
+    }
+    .btn{
+        padding: 0 60px;
+    }
+}   
+
+ @media (min-width: 1024px) and (max-width: 1450px) {
+    .MealDetails {
+        margin-left: 120px;
+    }
+ }
+
+ @media (min-width: 640px) and (max-width: 1024px) {
+    .MealDetails {
+        margin-left: 250px;
+    }
+    .Heading{
+        text-align: left;
+        margin: 0;
+    }
+    .btn{
+        justify-content: center;
+    }
+    .Ingredient{
+        width: 100%;
+    }
+ }
+
+ @media (min-width: 492px) and (max-width: 639px) {
+    .MealDetails {
+        .Heading{
+            text-align: left;
+            margin: 0;
+        }
+        .btn{
+            justify-content: center;
+        }
+        .Ingredient{
+            width: 100%;
+        }
+    }
+
+ }
